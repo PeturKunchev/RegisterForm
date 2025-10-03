@@ -4,62 +4,63 @@
   <meta charset="utf-8">
   <title>Профил</title>
   <link href="./css/style.css" rel="stylesheet">
+  <script type="module" src="scripts/profile.js"></script>
 </head>
 <body>
   <header>
     <nav>
-      <a href="./index.html">Начало</a>
-      <a href="./register.html">Регистрация</a>
-      <a href="./login.html">Вход</a>
-      <a href="./profile.html" aria-current="page">Профил</a>
+      <a href="./index.html">Home</a>
+      <a href="./register.html">Register</a>
+      <a href="./login.html">Login</a>
+      <a href="./profile.html" aria-current="page">Profile</a>
     </nav>
   </header>
 
   <main id="profilePage">
-    <h1>Моят профил</h1>
+    <h1>My Profile</h1>
 
     <form id="updateNameForm">
-      <h2>Промяна на данни</h2>
+      <h2>Update Profile</h2>
       <div class="field">
-        <label for="profileEmail">Имейл</label>
+        <label for="profileEmail">Email</label>
         <input id="profileEmail" type="email" disabled />
       </div>
       <div class="field">
-        <label for="profileFirst">Име</label>
+        <label for="profileFirst">First Name</label>
         <input id="profileFirst" type="text" required />
       </div>
       <div class="field">
-        <label for="profileLast">Фамилия</label>
+        <label for="profileLast">Second Name</label>
         <input id="profileLast" type="text" required />
       </div>
       <div id="profileNameMsg" class="message"></div>
       <div class="actions">
-        <button type="submit">Запази</button>
+        <button type="submit">Save</button>
       </div>
     </form>
 
     <form id="updatePasswordForm">
-      <h2>Смяна на парола</h2>
+      <h2>Change Password</h2>
       <div class="field">
-        <label for="currentPassword">Текуща парола</label>
+        <label for="currentPassword">Current Password</label>
         <input id="currentPassword" type="password" required />
       </div>
       <div class="field">
-        <label for="newPassword">Нова парола</label>
+        <label for="newPassword">New Password</label>
         <input id="newPassword" type="password" required minlength="8" />
       </div>
       <div class="field">
-        <label for="newPassword2">Повтори новата парола</label>
+        <label for="newPassword2">Repeat Password</label>
         <input id="newPassword2" type="password" required />
       </div>
       <div id="profilePassMsg" class="message"></div>
       <div class="actions">
-        <button type="submit">Смени</button>
+        <button type="submit">Save</button>
       </div>
     </form>
 
     <p>
-      <button id="logoutBtn" type="button">Изход</button>
+      <button id="logoutBtn" type="button">Logout</button>
     </p>
   </main>
 </body>

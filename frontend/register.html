@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <title>Регистрация</title>
   <link href="./css/style.css" rel="stylesheet">
+  <script type="module" src="scripts/register.js"></script>
 </head>
 <body>
   <header>
     <nav>
-      <a href="./index.html">Начало</a>
-      <a href="./login.html">Вход</a>
-      <a href="./profile.html">Профил</a>
+      <a href="./index.html">Home</a>
+      <a href="./login.html">Login</a>
+      <a href="./profile.html">Profile</a>
     </nav>
   </header>
 
@@ -19,28 +20,28 @@
 
     <form id="registerForm">
       <div class="field">
-        <label for="email">Имейл</label>
+        <label for="email">Email</label>
         <input id="email" type="email" required />
         <small class="hint">Пример: user@example.com</small>
       </div>
 
       <div class="field">
-        <label for="firstName">Име</label>
+        <label for="firstName">First Name</label>
         <input id="firstName" type="text" required />
       </div>
 
       <div class="field">
-        <label for="lastName">Фамилия</label>
+        <label for="lastName">Second Name</label>
         <input id="lastName" type="text" required />
       </div>
 
       <div class="field">
-        <label for="password">Парола</label>
+        <label for="password">Password</label>
         <input id="password" type="password" required minlength="8" />
       </div>
 
       <div class="field">
-        <label for="password2">Повтори паролата</label>
+        <label for="password2">Re-Password</label>
         <input id="password2" type="password" required />
       </div>
 
@@ -50,14 +51,14 @@
           <img id="captchaImg" src="http://localhost:3000/api/captcha" alt="captcha">
           <button type="button" id="refreshCaptcha">↻</button>
         </div>
-        <label for="captchaInput">Въведи символите</label>
+        <label for="captchaInput">Enter the symbols</label>
         <input id="captchaInput" type="text" required />
       </fieldset>
 
       <div id="registerMsg" class="message"></div>
 
       <div class="actions">
-        <button type="submit">Регистрация</button>
+        <button type="submit">Register</button>
       </div>
     </form>
   </main>
