@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация</title>
+  <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="./index.html">Начало</a>
+      <a href="./login.html">Вход</a>
+      <a href="./profile.html">Профил</a>
+    </nav>
+  </header>
+
+  <main id="registerPage">
+    <h1>Създай профил</h1>
+
+    <form id="registerForm">
+      <div class="field">
+        <label for="email">Имейл</label>
+        <input id="email" type="email" required />
+        <small class="hint">Пример: user@example.com</small>
+      </div>
+
+      <div class="field">
+        <label for="firstName">Име</label>
+        <input id="firstName" type="text" required />
+      </div>
+
+      <div class="field">
+        <label for="lastName">Фамилия</label>
+        <input id="lastName" type="text" required />
+      </div>
+
+      <div class="field">
+        <label for="password">Парола</label>
+        <input id="password" type="password" required minlength="8" />
+      </div>
+
+      <div class="field">
+        <label for="password2">Повтори паролата</label>
+        <input id="password2" type="password" required />
+      </div>
+
+      <fieldset class="captcha">
+        <legend>CAPTCHA</legend>
+        <div class="captcha-row">
+          <img id="captchaImg" src="http://localhost:3000/api/captcha" alt="captcha">
+          <button type="button" id="refreshCaptcha">↻</button>
+        </div>
+        <label for="captchaInput">Въведи символите</label>
+        <input id="captchaInput" type="text" required />
+      </fieldset>
+
+      <div id="registerMsg" class="message"></div>
+
+      <div class="actions">
+        <button type="submit">Регистрация</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

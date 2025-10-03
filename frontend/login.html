@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <title>Вход</title>
+  <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="./index.html">Начало</a>
+      <a href="./profile.html">Профил</a>
+    </nav>
+  </header>
+
+  <main id="loginPage">
+    <h1>Вход</h1>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginEmail">Имейл</label>
+        <input id="loginEmail" type="email" required />
+      </div>
+
+      <div class="field">
+        <label for="loginPassword">Парола</label>
+        <input id="loginPassword" type="password" required />
+      </div>
+
+      <fieldset class="captcha">
+        <legend>CAPTCHA</legend>
+        <div class="captcha-row">
+          <img id="loginCaptchaImg" src="http://localhost:3000/api/captcha" alt="captcha">
+          <button type="button" id="loginRefreshCaptcha">↻</button>
+        </div>
+        <label for="loginCaptchaInput">Въведи символите</label>
+        <input id="loginCaptchaInput" type="text" required />
+      </fieldset>
+
+      <div id="loginMsg" class="message"></div>
+
+      <div class="actions">
+        <button type="submit">Влез</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

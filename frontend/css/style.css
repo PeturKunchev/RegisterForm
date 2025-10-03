@@ -1,0 +1,117 @@
+:root {
+  --gap: 12px;
+  --primary: #0044cc;
+  --primary-light: #e6ecff;
+  --danger: #c00;
+  --success: #080;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 600px;
+  background: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+form {
+  display: grid;
+  gap: var(--gap);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.field input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.hint {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.captcha {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background: var(--primary-light);
+}
+
+.captcha-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.captcha-row img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button, .actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #003399;
+}
+
+.message {
+  font-size: 0.95em;
+  min-height: 1em;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.message.success {
+  color: var(--success);
+}
