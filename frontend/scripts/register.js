@@ -28,9 +28,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         body: JSON.stringify({email,firstName,lastName,password,captcha})
     });
     if (data.success) {
+        
         showMessage("registerMsg", "Successful registration!", "success");
         form.reset();
         refreshCaptcha("captchaImg");
+        window.location.href = "./login.html";
     }
     else {
         showMessage("registerMsg", data.message || "Registration error", "error");

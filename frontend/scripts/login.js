@@ -1,4 +1,4 @@
-import { refreshCaptcha } from "./app";
+import { apiFetch, refreshCaptcha, showMessage } from "./app.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (data.success) {
       showMessage("loginMsg", "Successful login!", "success");
-      window.location.href = "profile.html";
+      window.location.href = "./profile.html";
     } else {
       showMessage("loginMsg", data.message || "Login error!", "error");
       refreshCaptcha("loginCaptchaImg");

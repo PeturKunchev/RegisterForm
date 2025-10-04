@@ -38,7 +38,7 @@ export async function authRouter(req, res) {
         if (!captchaResult.valid) {
           return sendError(res, captchaResult.message);
         }
-        const  hash = hashPassword(password);
+        const  hash = await hashPassword(password);
 
         await query(
           "INSERT INTO users (email, first_name, last_name, pw_hash) VALUES ($1, $2, $3, $4)",

@@ -4,6 +4,7 @@ import { captchaRouter } from './routes/captcha.js';
 import { authRouter } from './routes/auth.js';
 import { setCors } from './services/cors.js';
 import { notFound } from './services/responses.js';
+import { loginHandler } from './routes/login.js';
 
 const port = 3000;
 
@@ -43,6 +44,9 @@ const server = http.createServer(async (req,res)=>{
 
     if (url.startsWith("/api/register")) {
         return authRouter(req,res);
+    }
+    if (url.startsWith("/api/login")) {
+        return loginHandler(req,res);
     }
 
     return notFound(res);
