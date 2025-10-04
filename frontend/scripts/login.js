@@ -1,3 +1,5 @@
+import { refreshCaptcha } from "./app";
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
   const refreshBtn = document.getElementById("loginRefreshCaptcha");
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("loginPassword").value;
     const captcha = document.getElementById("loginCaptchaInput").value;
 
-    const data = await apiFetch("http://localhost:3000/api/login", {
+    const data = await apiFetch("http://127.0.0.1:3000/api/login", {
       method: "POST",
       body: JSON.stringify({ email, password, captcha })
     });

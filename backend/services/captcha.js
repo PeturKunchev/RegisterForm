@@ -14,7 +14,7 @@ export function generateCaptcha(text) {
     const canvas = createCanvas(width,height);
 
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "f0f0f0";
+    ctx.fillStyle = "#f0f0f0";
     ctx.fillRect(0,0,width,height);
 
     for (let index = 0; index < 5; index++) {

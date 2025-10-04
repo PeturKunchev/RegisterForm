@@ -1,4 +1,4 @@
-import { apiFetch, refreshCaptcha, showMessage } from "./app";
+import { apiFetch, refreshCaptcha, showMessage } from "./app.js";
 
 document.addEventListener("DOMContentLoaded",()=>{
     const form = document.getElementById("registerForm");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       return;
     }
 
-    const data = await apiFetch("http://localhost:3000/api/register",{
+    const data = await apiFetch("http://127.0.0.1:3000/api/register",{
         method: "POST",
         body: JSON.stringify({email,firstName,lastName,password,captcha})
     });

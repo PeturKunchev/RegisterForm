@@ -16,7 +16,7 @@ export function showMessage(elementId, msg, type = "error") {
   el.className = `message ${type}`;
 }
 
-export function refreshCaptcha(imgId, endpoint = "http://localhost:3000/api/captcha") {
+export function refreshCaptcha(imgId, endpoint = "http://127.0.0.1:3000/api/captcha") {
   const img = document.getElementById(imgId);
   img.src = `${endpoint}?_=${Date.now()}`;
 }

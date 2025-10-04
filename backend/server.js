@@ -1,5 +1,9 @@
 import http from 'http'
 import { query } from './db/connection.js';
+import { captchaRouter } from './routes/captcha.js';
+import { authRouter } from './routes/auth.js';
+import { setCors } from './services/cors.js';
+import { notFound } from './services/responses.js';
 
 const port = 3000;
 
@@ -9,14 +13,17 @@ function sendJSON(res,status,data) {
     res.end(JSON.stringify(data));
 }
 
-function setCors(res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-}
 
 const server = http.createServer(async (req,res)=>{
     const {url,method} = req;
+
+    if (method === "OPTIONS") {
+    setCors(res);
+    res.writeHead(204); 
+    return res.end();
+  }
+
+
     if (url === "/api/ping" && method === "GET") {
         return sendJSON(res, 200, {message: "PONG"})
     }
@@ -30,10 +37,18 @@ const server = http.createServer(async (req,res)=>{
         }
     }
 
-    sendJSON(res, 404, {error: "Not Found"});
+    if (url.startsWith("/api/captcha")) {
+        return captchaRouter(req,res);
+    }
+
+    if (url.startsWith("/api/register")) {
+        return authRouter(req,res);
+    }
+
+    return notFound(res);
 });
 
 server.listen(port, ()=>{
-    console.log(`API running at http://localhost:${port}`);
+    console.log(`API running at http://127.0.0.1:${port}`);
     
 })

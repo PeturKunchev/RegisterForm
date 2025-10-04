@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const updatePasswordForm = document.getElementById("updatePasswordForm");
     const logoutBtn = document.getElementById("logoutBtn");
     async function loadProfile() {
-        const data = await apiFetch("http://localhost:3000/api/profile");
+        const data = await apiFetch("http://127.0.0.1:3000/api/profile");
         if (data.success)  {
             document.getElementById("profileEmail").value = data.user.email;
             document.getElementById("profileFirst").value = data.user.first_name;
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         const firstName = document.getElementById("profileFirst").value;
         const lastName = document.getElementById("profileLast").value;
 
-        const data = await apiFetch("http://localhost:3000/api/profile",{
+        const data = await apiFetch("http://127.0.0.1:3000/api/profile",{
             method: "PUT",
             body: JSON.stringify({firstName,lastName})
         });
@@ -43,7 +43,7 @@ updatePasswordForm.addEventListener("submit", async (e) => {
       return;
     }
 
-    const data = await apiFetch("http://localhost:3000/api/profile/password", {
+    const data = await apiFetch("http://127.0.0.1:3000/api/profile/password", {
       method: "PUT",
       body: JSON.stringify({ currentPassword, newPassword })
     });
@@ -57,7 +57,7 @@ updatePasswordForm.addEventListener("submit", async (e) => {
   });
 
   logoutBtn.addEventListener("click", async () => {
-    const data = await apiFetch("http://localhost:3000/api/logout", { method: "POST" });
+    const data = await apiFetch("http://127.0.0.1:3000/api/logout", { method: "POST" });
     if (data.success) {
       window.location.href = "login.html";
     }
