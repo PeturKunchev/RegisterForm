@@ -1,4 +1,5 @@
 import { apiFetch, refreshCaptcha, showMessage } from "./app.js";
+import { validateEmail, validateName } from "./validators.js";
 
 document.addEventListener("DOMContentLoaded",async ()=>{
 
@@ -29,6 +30,18 @@ document.addEventListener("DOMContentLoaded",async ()=>{
     if (password !== password2) {
       showMessage("registerMsg", "Password missmatch!", "error");
       return;
+    }
+    if (!validateEmail(email)) {
+       showMessage("registerMsg", "Please enter a valid email!", "error");
+       return;
+    }
+    if (!validateName(firstName)) {
+       showMessage("registerMsg", "Please enter a valid first name!", "error");
+       return;
+    }
+    if (!validateName(lastName)) {
+       showMessage("registerMsg", "Please enter a valid last name!", "error");
+       return;
     }
 
     const data = await apiFetch("http://127.0.0.1:3000/api/register",{

@@ -1,4 +1,5 @@
 import { apiFetch, loadUserHeader, showMessage } from "./app.js";
+import { validateEmail, validateName } from "./validators.js";
 
 document.addEventListener("DOMContentLoaded",()=>{
     loadUserHeader();
@@ -25,6 +26,19 @@ document.addEventListener("DOMContentLoaded",()=>{
         const lastName = document.getElementById("profileLast").value;
         const email = document.getElementById("profileEmail").value;
 
+        if (!validateEmail(email)) {
+               showMessage("profileNameMsg", "Please enter a valid email!", "error");
+               return;
+        }
+        if (!validateName(firstName)) {
+               showMessage("profileNameMsg", "Please enter a valid first name!", "error");
+               return;
+        }
+        if (!validateName(lastName)) {
+               showMessage("profileNameMsg", "Please enter a valid last name!!", "error");
+               return;
+        }
+
         const data = await apiFetch("http://127.0.0.1:3000/api/profile",{
             method: "PUT",
             body: JSON.stringify({email,firstName,lastName})
@@ -42,7 +56,7 @@ updatePasswordForm.addEventListener("submit", async (e) => {
     const newPassword2 = document.getElementById("newPassword2").value;
 
     if (newPassword !== newPassword2) {
-      showMessage("profilePassMsg", "Новите пароли не съвпадат!", "error");
+      showMessage("profilePassMsg", "Password missmatch!", "error");
       return;
     }
 
@@ -52,7 +66,7 @@ updatePasswordForm.addEventListener("submit", async (e) => {
     });
 
     if (data.success) {
-      showMessage("profilePassMsg", "Паролата е сменена!", "success");
+      showMessage("profilePassMsg", "Password changed successfully!", "success");
       updatePasswordForm.reset();
     } else {
       showMessage("profilePassMsg", data.message || "Грешка при смяна", "error");
