@@ -1,9 +1,10 @@
 import pkg from "pg"
-
+import "dotenv/config";
 const {Pool} = pkg;
 
+const URL = process.env.DATABASE_URL;
 const pool = new Pool({
-    connectionString: "postgres://postgres:1234@localhost:5432/myapp"
+    connectionString: URL
 });
 
 export async function query(text,params) {

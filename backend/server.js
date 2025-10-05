@@ -6,9 +6,9 @@ import { setCors } from './services/cors.js';
 import { notFound } from './services/responses.js';
 import { loginHandler } from './routes/login.js';
 import { profileRouter } from './routes/profile.js';
-
-const port = 3000;
-
+import 'dotenv/config';
+const port = process.env.PORT;
+const URL = process.env.BASE_URL;
 function sendJSON(res,status,data) {
     setCors(res)
     res.writeHead(status, {"Content-Type":"application/json"});
@@ -56,6 +56,6 @@ const server = http.createServer(async (req,res)=>{
 });
 
 server.listen(port, ()=>{
-    console.log(`API running at http://127.0.0.1:${port}`);
+    console.log(`API running at ${URL}:${port}`);
     
 })

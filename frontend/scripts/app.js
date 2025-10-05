@@ -25,7 +25,6 @@ export async function loadUserHeader() {
   try {
     const data = await apiFetch("http://127.0.0.1:3000/api/profile");
     const userHeader = document.getElementById("userHeader");
-    console.log(data);
     
     if (data.success && data.user) {
       userHeader.textContent = `Welcome, ${data.user.first_name}!`
