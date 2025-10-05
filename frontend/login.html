@@ -2,29 +2,29 @@
 <html lang="bg">
 <head>
   <meta charset="utf-8">
-  <title>Вход</title>
+  <title>Login</title>
   <link href="./css/style.css" rel="stylesheet">
   <script type="module" src="scripts/login.js"></script>
 </head>
 <body>
   <header>
     <nav>
-      <a href="./index.html">Home</a>
-      <a href="./profile.html">Profile</a>
+      <a href="./register.html">Register</a>
+      
     </nav>
   </header>
 
   <main id="loginPage">
-    <h1>Вход</h1>
+    <h1>Login</h1>
 
     <form id="loginForm">
       <div class="field">
-        <label for="loginEmail">Имейл</label>
+        <label for="loginEmail">Email</label>
         <input id="loginEmail" type="email" required />
       </div>
 
       <div class="field">
-        <label for="loginPassword">Парола</label>
+        <label for="loginPassword">Password</label>
         <input id="loginPassword" type="password" required />
       </div>
 
@@ -34,14 +34,14 @@
           <img id="loginCaptchaImg" src="http://127.0.0.1:3000/api/captcha" alt="captcha">
           <button type="button" id="loginRefreshCaptcha">↻</button>
         </div>
-        <label for="loginCaptchaInput">Въведи символите</label>
+        <label for="loginCaptchaInput">Enter the characters</label>
         <input id="loginCaptchaInput" type="text" required />
       </fieldset>
 
       <div id="loginMsg" class="message"></div>
 
       <div class="actions">
-        <button type="submit">Влез</button>
+        <button type="submit">Login</button>
       </div>
     </form>
   </main>

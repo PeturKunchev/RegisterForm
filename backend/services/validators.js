@@ -3,9 +3,12 @@ export function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 export function validateName(name) {
-  return /^[A-Za-zА-Яа-я]{2,}$/.test(name); 
+  if (typeof name !== 'string') return false;
+  return /^[A-Za-zА-Яа-я]{2,50}$/.test(name.trim()); 
 }
 
 export function validatePassword(password) {
-  return password.length >= 8;
+  if(typeof password !== 'string') return false;
+  if(password.trim().length < 8) return false;
+  return true;
 }

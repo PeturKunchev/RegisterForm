@@ -5,6 +5,7 @@ import { authRouter } from './routes/auth.js';
 import { setCors } from './services/cors.js';
 import { notFound } from './services/responses.js';
 import { loginHandler } from './routes/login.js';
+import { profileRouter } from './routes/profile.js';
 
 const port = 3000;
 
@@ -48,7 +49,9 @@ const server = http.createServer(async (req,res)=>{
     if (url.startsWith("/api/login")) {
         return loginHandler(req,res);
     }
-
+    if (url.startsWith("/api/profile") || url.startsWith("/api/logout")) {
+  return profileRouter(req, res);
+}
     return notFound(res);
 });
 

@@ -33,8 +33,6 @@ export async function loginHandler(req,res) {
             }
             const user = result.rows[0];
 
-            console.log("Password entered:", password);
-            console.log("Stored hash:", user.pw_hash);
 
             const match = await verifyPassword(password, user.pw_hash.toString());
             if (!match) {

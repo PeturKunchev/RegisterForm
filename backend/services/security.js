@@ -4,5 +4,10 @@ export async function hashPassword(password) {
     return await bcrypt.hash(password,saltRounds);
 }
 export async function verifyPassword(password,hash) {
-    return await bcrypt.compare(password, hash);
+    if (typeof password !== "string" || typeof hash !== "string") return false;
+    try {
+        return await bcrypt.compare(password, hash);
+    } catch {
+        return false;
+    }
 }

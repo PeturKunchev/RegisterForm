@@ -1,11 +1,13 @@
-import { apiFetch, showMessage } from "./app";
+import { apiFetch, loadUserHeader, showMessage } from "./app.js";
 
 document.addEventListener("DOMContentLoaded",()=>{
+    loadUserHeader();
     const updateNameForm = document.getElementById("updateNameForm");
     const updatePasswordForm = document.getElementById("updatePasswordForm");
     const logoutBtn = document.getElementById("logoutBtn");
     async function loadProfile() {
         const data = await apiFetch("http://127.0.0.1:3000/api/profile");
+
         if (data.success)  {
             document.getElementById("profileEmail").value = data.user.email;
             document.getElementById("profileFirst").value = data.user.first_name;
@@ -21,10 +23,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         e.preventDefault();
         const firstName = document.getElementById("profileFirst").value;
         const lastName = document.getElementById("profileLast").value;
+        const email = document.getElementById("profileEmail").value;
 
         const data = await apiFetch("http://127.0.0.1:3000/api/profile",{
             method: "PUT",
-            body: JSON.stringify({firstName,lastName})
+            body: JSON.stringify({email,firstName,lastName})
         });
         if (data.success) {
         showMessage("profileNameMsg", "Profile updated!", "success");

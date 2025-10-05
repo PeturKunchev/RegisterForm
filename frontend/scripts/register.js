@@ -1,6 +1,14 @@
 import { apiFetch, refreshCaptcha, showMessage } from "./app.js";
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded",async ()=>{
+
+    const data = await apiFetch("http://127.0.0.1:3000/api/profile");
+
+  if (data.success) {
+    window.location.href = "./index.html";
+    return;
+  }
+  
     const form = document.getElementById("registerForm");
     const refreshBtn = document.getElementById("refreshCaptcha");
 
