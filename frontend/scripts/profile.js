@@ -69,7 +69,7 @@ updatePasswordForm.addEventListener("submit", async (e) => {
       showMessage("profilePassMsg", "Password changed successfully!", "success");
       updatePasswordForm.reset();
     } else {
-      showMessage("profilePassMsg", data.message || "Грешка при смяна", "error");
+      showMessage("profilePassMsg", data.message || "Error when changing", "error");
     }
   });
 
